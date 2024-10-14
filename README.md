@@ -1,0 +1,2 @@
+# Midterm
+Midterm bash project
