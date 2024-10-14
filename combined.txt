@@ -1,0 +1,15 @@
+------ START OF 1.txt ------
+Why don't programmers like nature?
+
+------ END OF 1.txt ------
+
+------ START OF 2.txt ------
+Because it has too many...
+
+------ END OF 2.txt ------
+
+------ START OF 3.txt ------
+bugs.
+
+------ END OF 3.txt ------
+
