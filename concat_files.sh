@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# Purpose: This script concatenates multiple text files into a single output file.
-# Usage: ./concat_files.sh -o outputfile.txt file1.txt file2.txt ...
-# Example: ./concat_files.sh -o combined.txt file1.txt file2.txt
-#Author: Jacob Berlekamp
+# Purpose: This script concatenates multiple text files into a single output file,
+# with each file's content separated by a header.
 
 # Function to display help
 function usage() {
     echo "Usage: $0 -o outputfile [file1 file2 ...]"
-    echo "Concatenate multiple text files into a single output file."
+    echo "Concatenate multiple text files into a single output file, separated by headers."
     echo ""
     echo "Options:"
     echo "  -o    Specify the output file name."
@@ -60,9 +58,15 @@ for file in "$@"; do
     fi
 done
 
-# Concatenate files
+# Concatenate files with headers
 echo "Concatenating files into $output_file..."
-cat "$@" > "$output_file"
+
+for file in "$@"; do
+    echo "------ START OF $file ------" >> "$output_file"
+    cat "$file" >> "$output_file"
+    echo -e "\n------ END OF $file ------\n" >> "$output_file"
+done
+
 echo "Concatenation complete. Output saved to $output_file."
 
 # Using a regular expression to validate that the output file is a .txt file
